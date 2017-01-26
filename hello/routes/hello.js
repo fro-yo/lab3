@@ -1,10 +1,17 @@
 
 /*
- * GET home page.
- */
+* GET home page.
+*/
 
 exports.view = function(req, res){
-  res.render('index', {
-  	'name': '',
-  });
+
+    var username = req.params.userName;
+    if (username === undefined) {
+        username = "World";
+    }
+
+    console.log (username);
+    res.render('index', {
+        'name': username
+    });
 };
